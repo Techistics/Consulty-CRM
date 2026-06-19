@@ -66,23 +66,17 @@ export default function HomePage() {
           Book Free Demo →
         </Link>
 
-        {/* YOUTUBE VIDEO PLACEHOLDER */}
+        {/* YOUTUBE VIDEO PLAYER */}
         <div className="mt-12 flex justify-center">
-          <div className="relative bg-gray-900 rounded-2xl aspect-video w-full max-w-4xl overflow-hidden group cursor-pointer">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-[#069BAF] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                <svg
-                  className="w-8 h-8 text-white ml-1"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-            <p className="absolute bottom-4 left-0 right-0 text-center text-gray-400 text-sm">
-              See Consulty in action — 2 min walkthrough
-            </p>
+          <div className="relative rounded-2xl aspect-video w-full max-w-4xl overflow-hidden shadow-lg">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/QACmVnPU2qg"
+              title="Consulty Walkthrough Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            ></iframe>
           </div>
         </div>
       </motion.section>

@@ -23,7 +23,7 @@ export default function Step1Page() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <h1 className="text-5xl font-[Clash_Display] font-bold mb-3 max-w-3xl mx-auto">
-          Stop&nbsp;&nbsp;Losing&nbsp;&nbsp; Leads. 
+          Stop&nbsp;&nbsp;Losing&nbsp;&nbsp; Leads.
         </h1>
         <h1 className="text-[#069BAF] text-3xl font-semibold mb-3 font-[Clash_Display] max-w-6xl mx-auto">Start&nbsp;&nbsp;Running Your Consultancy Like a Machine.</h1>
         <p className="text-gray-600 max-w-2xl mx-auto mb-8">
@@ -31,21 +31,15 @@ export default function Step1Page() {
         </p>
 
         {/* YOUTUBE VIDEO PLACEHOLDER */}
-        <div className="relative bg-gray-900 rounded-2xl aspect-video w-full max-w-2xl border-[#069BAF] border border-2 mx-auto overflow-hidden group cursor-pointer">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-[#069BAF] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-              <svg
-                className="w-8 h-8 text-white ml-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="https://youtu.be/r1-N6tLZiGU?si=pl4UoE8PmZd8gAyM" />
-              </svg>
-            </div>
-          </div>
-          <p className="absolute bottom-4 left-0 right-0 text-center text-gray-400 text-sm">
-            See Consulty in action — 2 min walkthrough
-          </p>
+        <div className="relative rounded-2xl aspect-video w-full max-w-2xl border-[#069BAF] border-2 mx-auto overflow-hidden shadow-lg">
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube-nocookie.com/embed/HVoUkdoPm3k"
+            title="Consulty Walkthrough Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          ></iframe>
         </div>
       </motion.section>
 
