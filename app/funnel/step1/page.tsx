@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { trackMetaEvent } from "@/lib/meta-track";
 
 // Animation config used on all sections
 const fadeInUp = {
@@ -11,6 +12,11 @@ const fadeInUp = {
 };
 
 export default function Step1Page() {
+  const handleCTAClick = (location: string) => {
+    trackMetaEvent("InitiateCheckout"); // standard Meta event, optimizes well for funnel entry
+    console.log("CTA clicked:", location); // optional: remove later, just for your own debugging
+  };
+
   return (
     <div className="font-[Clash_Display] text-[#0a0a0a] bg-white">
 
@@ -40,6 +46,17 @@ export default function Step1Page() {
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
           ></iframe>
+        </div>
+
+        {/* CTA AFTER VIDEO */}
+        <div className="mt-8">
+          <Link
+            href="/funnel/step2"
+            onClick={() => handleCTAClick("after_video")}
+            className="bg-black text-white rounded-full px-8 py-3 font-semibold hover:bg-[#069BAF] transition-colors inline-block"
+          >
+            Book Your Free Demo →
+          </Link>
         </div>
       </motion.section>
 
@@ -164,6 +181,7 @@ export default function Step1Page() {
           </ul>
           <Link
             href="/funnel/step2"
+            onClick={() => handleCTAClick("pricing_section")}
             className="block w-full text-center bg-black text-white rounded-full px-6 py-3 font-semibold hover:bg-[#069BAF] transition-colors"
           >
             Claim This Pricing — Book Demo →
@@ -187,6 +205,7 @@ export default function Step1Page() {
         </p>
         <Link
           href="/funnel/step2"
+          onClick={() => handleCTAClick("final_cta")}
           className="bg-black text-white rounded-full px-6 py-3 font-semibold hover:bg-[#069BAF] transition-colors inline-block"
         >
           Book Your Free Demo →

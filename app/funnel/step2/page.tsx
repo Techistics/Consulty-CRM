@@ -1,4 +1,4 @@
-// Updated Step2 page with DB submission and cleaned up implementation
+// Updated Step2 page with DB submission, cleaned up implementation, and Meta tracking
 
 'use client';
 
@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { SLOTS, type Slot } from "../data/slots";
+import { trackMetaEvent } from "@/lib/meta-track";
 
 // Animation variant
 const fadeInUp = {
@@ -100,6 +101,13 @@ export default function Step2Page() {
         }),
       });
       if (!res.ok) throw new Error("Failed to submit lead");
+
+      // Fire Meta Pixel + CAPI together — this is the real conversion event
+      trackMetaEvent(isExploring ? "Lead" : "CompleteRegistration", {
+        email: formData.email,
+        phone: formData.whatsapp,
+      });
+
       setSubmitted(true);
     } catch (err: any) {
       setError(err.message || "Unexpected error");
